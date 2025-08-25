@@ -1,0 +1,210 @@
+{
+  "meta": {
+    "project": "mcp-gemini-client",
+    "date": "2025-08-25",
+    "prepared_by": "Standard PRD Generator"
+  },
+  "product_overview": "The MCP Gemini Client is a Python-based real-time weather service that utilizes the Model Context Protocol (MCP) to provide detailed weather forecasts, alerts, and temperature data for US cities through an interactive command-line interface.",
+  "core_goals": [
+    "Provide accurate and up-to-date weather forecasts for supported US cities using the National Weather Service API.",
+    "Deliver timely weather alerts for US states to inform users of hazardous conditions.",
+    "Enable user-friendly interaction through a command-line interface supporting intuitive weather queries and commands.",
+    "Ensure seamless communication and data exchange between the MCP client and MCP weather server using FastMCP framework.",
+    "Support accurate location recognition and mapping to deliver location-specific weather information."
+  ],
+  "key_features": [
+    "Weather Forecast retrieval endpoint providing detailed forecasts based on latitude and longitude.",
+    "Weather Alerts endpoint offering active weather alerts for US states.",
+    "Interactive command-line chat interface with commands such as /help to assist users, /tools to show available features, and /quit to exit.",
+    "City Recognition system that parses user inputs to recognize 35 supported US cities and map to their respective coordinates.",
+    "Temperature conversion utilities integrated with the weather data.",
+    "Robust MCP protocol implementation to handle communication between client and server."
+  ],
+  "user_flow_summary": [
+    "User launches the MCP client command-line interface.",
+    "User inputs a supported US city name or uses a command such as /help to get usage instructions.",
+    "The client parses the input to identify the city or command and sends a request to the MCP weather server.",
+    "The server processes the request by querying the National Weather Service API for forecasts or alerts based on the parameters.",
+    "The server returns the processed weather data via MCP protocol to the client.",
+    "The client displays the weather forecast or alert information to the user in a readable format.",
+    "User may continue to input commands or city names or exit using /quit."
+  ],
+  "validation_criteria": [
+    "Correct retrieval of weather forecasts matching the requested city coordinates from NWS API.",
+    "Accurate reporting of active weather alerts for specified US states.",
+    "Robust handling and user guidance for unsupported or invalid location inputs.",
+    "Validation of MCP protocol communication to ensure no data loss or corruption.",
+    "Temperature conversions are tested for accuracy with standard formulas.",
+    "Interactive chat commands (/help, /tools, /quit) operate as expected and provide informative responses.",
+    "System is tested against external dependencies such as availability of NWS API and internet connectivity.",
+    "Compatibility with required Python (>=3.10) and Node.js (>=18.0.0) environments is confirmed."
+  ],
+  "code_summary": {
+    "project_name": "mcp-gemini-client",
+    "description": "MCP (Model Context Protocol) Weather Client - A Python-based weather service using MCP for real-time weather data and alerts",
+    "tech_stack": {
+      "backend": {
+        "language": "Python",
+        "version": ">=3.10",
+        "framework": "FastMCP",
+        "key_libraries": [
+          "mcp[cli]>=1.2.0",
+          "httpx>=0.28.1",
+          "@modelcontextprotocol/sdk"
+        ]
+      },
+      "frontend": {
+        "language": "JavaScript/Node.js",
+        "version": ">=18.0.0",
+        "libraries": [
+          "@google/generative-ai",
+          "dotenv"
+        ]
+      },
+      "apis": [
+        "National Weather Service (NWS) API",
+        "Google Gemini AI API"
+      ]
+    },
+    "architecture": {
+      "type": "MCP Server-Client",
+      "components": [
+        {
+          "name": "Weather Server",
+          "file": "weather-server-python/weather.py",
+          "description": "FastMCP server providing weather tools via NWS API",
+          "responsibilities": [
+            "Weather forecast retrieval",
+            "Weather alerts for US states",
+            "Temperature conversion",
+            "MCP protocol handling"
+          ]
+        },
+        {
+          "name": "MCP Client",
+          "file": "client.py",
+          "description": "Python client that connects to MCP weather server",
+          "responsibilities": [
+            "MCP protocol communication",
+            "User input parsing",
+            "Interactive chat interface",
+            "City coordinate mapping"
+          ]
+        }
+      ]
+    },
+    "features": [
+      {
+        "name": "Weather Forecast",
+        "description": "Get detailed weather forecasts for US cities",
+        "endpoints": [
+          "get_forecast"
+        ],
+        "parameters": [
+          "latitude",
+          "longitude"
+        ]
+      },
+      {
+        "name": "Weather Alerts",
+        "description": "Retrieve active weather alerts for US states",
+        "endpoints": [
+          "get_alerts"
+        ],
+        "parameters": [
+          "state"
+        ]
+      },
+      {
+        "name": "Interactive Chat",
+        "description": "Command-line interface for weather queries",
+        "commands": [
+          "/help",
+          "/tools",
+          "/quit"
+        ]
+      },
+      {
+        "name": "City Recognition",
+        "description": "Parse user input to identify supported US cities",
+        "supported_cities": 35
+      }
+    ],
+    "data_sources": {
+      "primary": "National Weather Service API (api.weather.gov)",
+      "coverage": "United States only",
+      "data_types": [
+        "forecasts",
+        "alerts",
+        "temperature",
+        "wind"
+      ]
+    },
+    "configuration": {
+      "mcp_config": "mcp-config.json",
+      "package_config": "package.json",
+      "python_config": "weather-server-python/pyproject.toml"
+    },
+    "supported_locations": [
+      "New York",
+      "Los Angeles",
+      "Chicago",
+      "Houston",
+      "Phoenix",
+      "Philadelphia",
+      "San Antonio",
+      "San Diego",
+      "Dallas",
+      "San Jose",
+      "Austin",
+      "Jacksonville",
+      "San Francisco",
+      "Columbus",
+      "Charlotte",
+      "Fort Worth",
+      "Detroit",
+      "El Paso",
+      "Memphis",
+      "Seattle",
+      "Denver",
+      "Washington",
+      "Boston",
+      "Nashville",
+      "Baltimore",
+      "Oklahoma City",
+      "Portland",
+      "Las Vegas",
+      "Milwaukee",
+      "Albuquerque",
+      "Tucson",
+      "Fresno",
+      "Sacramento",
+      "Miami",
+      "Kansas City",
+      "Mesa",
+      "Atlanta",
+      "Omaha",
+      "Raleigh",
+      "Colorado Springs",
+      "Virginia Beach"
+    ],
+    "test_considerations": {
+      "external_dependencies": [
+        "NWS API availability",
+        "Internet connectivity"
+      ],
+      "environment_requirements": [
+        "Python 3.10+",
+        "Node.js 18+"
+      ],
+      "key_test_areas": [
+        "MCP protocol communication",
+        "Weather API integration",
+        "Error handling for invalid locations",
+        "Temperature conversion accuracy",
+        "User input parsing",
+        "Alert system functionality"
+      ]
+    }
+  }
+}

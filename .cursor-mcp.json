@@ -1,0 +1,13 @@
+{
+  "servers": {
+    "weather-server": {
+      "command": "python",
+      "args": ["./weather-server-python/weather.py"],
+      "cwd": "C:/Users/pc/mcp-gemini-client",
+      "env": {
+        "PYTHONPATH": "C:/Users/pc/mcp-gemini-client/weather-server-python"
+      }
+    }
+  }
+}
+

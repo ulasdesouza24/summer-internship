@@ -1,0 +1,47 @@
+[
+  {
+    "id": "TC001",
+    "title": "get_forecast_endpoint_returns_correct_weather_data",
+    "description": "Verify that the get_forecast endpoint returns accurate and up-to-date weather forecast data based on valid latitude and longitude inputs for supported US cities."
+  },
+  {
+    "id": "TC002",
+    "title": "get_alerts_endpoint_returns_active_weather_alerts",
+    "description": "Test that the get_alerts endpoint correctly retrieves and returns active weather alerts for specified US states, ensuring alerts are current and relevant."
+  },
+  {
+    "id": "TC003",
+    "title": "interactive_chat_commands_functionality",
+    "description": "Validate that the interactive command-line chat interface correctly processes commands such as /help, /tools, and /quit, providing appropriate responses and actions."
+  },
+  {
+    "id": "TC004",
+    "title": "city_recognition_parses_supported_cities",
+    "description": "Ensure the city recognition system accurately parses user input to identify and map 35 supported US cities to their correct coordinates."
+  },
+  {
+    "id": "TC005",
+    "title": "temperature_conversion_accuracy",
+    "description": "Test the temperature conversion utilities integrated with the weather data for accuracy using standard temperature conversion formulas."
+  },
+  {
+    "id": "TC006",
+    "title": "mcp_protocol_communication_integrity",
+    "description": "Verify that the MCP protocol implementation correctly handles communication between the client and server without data loss or corruption."
+  },
+  {
+    "id": "TC007",
+    "title": "handle_invalid_location_inputs_gracefully",
+    "description": "Test the system's robustness in handling unsupported or invalid location inputs by providing user guidance and error messages."
+  },
+  {
+    "id": "TC008",
+    "title": "external_dependencies_availability_handling",
+    "description": "Validate system behavior when external dependencies such as the National Weather Service API or internet connectivity are unavailable or unstable."
+  },
+  {
+    "id": "TC009",
+    "title": "environment_compatibility_check",
+    "description": "Confirm compatibility and proper functioning of the system in the required Python (>=3.10) and Node.js (>=18.0.0) environments."
+  }
+]
